@@ -23,7 +23,7 @@ PHP `session.upload_progress` filename-injection chain
 
 ## Overview
 
-php2shell-scanner is a Go-based rewrite of [CyberRoute/php2shell-scanner](https://github.com/CyberRoute/php2shell-scanner), built for security researchers and penetration testers conducting **authorized assessments**.
+php2shell-scanner is a Go-based PHP2shell scanner, built for security researchers and penetration testers conducting **authorized assessments** 
 
 It validates whether a PHP target is susceptible to the `session.upload_progress` filename injection primitive that underlies CVE-2026-109618 and CVE-2026-109619. It **never executes any code on the target** - confirmation is done by injecting an inert random token (no `<?php` tags) and reading it back via a caller-supplied LFI endpoint.
 
@@ -269,25 +269,12 @@ php2shell-scanner/
 **Author**
 Alham Rizvi ([@alham-rizvi](https://github.com/alham-rizvi))
 
-**Based on**
-[CyberRoute/php2shell-scanner](https://github.com/CyberRoute/php2shell-scanner) - original Python scanner for CVE-2026-109618 / CVE-2026-109619 by [@CyberRoute](https://github.com/CyberRoute).
-
 **CVE References**
 - CVE-2026-109618 - PHP session.upload_progress filename injection
 - CVE-2026-109619 - PHP session fixation via POST body
 
 **POC Reference**
 [ikow/php2shell-poc](https://github.com/ikow/php2shell-poc) - the exploit POC this scanner detects (referenced for testing against the lab environment only).
-
----
-
-## Other Projects
-
-| Project | Description |
-|---------|-------------|
-| [ParameterX](https://github.com/alham-rizvi/ParameterX) | Passive URL parameter discovery from web archives |
-
----
 
 ## Disclaimer
 
