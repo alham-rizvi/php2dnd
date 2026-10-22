@@ -55,9 +55,7 @@ func run() int {
 
 	// ---- banner + auth gate --------------------------------------------------
 	noColor := *fNoColor || !isTerminal()
-	if *fFormat == "terminal" {
-		report.PrintBanner(os.Stderr, noColor)
-	}
+	report.PrintBanner(os.Stderr, noColor)
 
 	if !*fYes {
 		fmt.Fprintln(os.Stderr, col("  [!] Refusing to run without --yes", 33))
