@@ -39,14 +39,11 @@ func col(text string, colors ...color) string {
 
 func PrintBanner(w io.Writer, noColor bool) {
 	banner := `
-  ____  _   _ ____  ____      _          _ _
- |  _ \| | | |  _ \|___ \  __| |_ __  __| | |
- | |_) | |_| | |_) | __) |/ _' | '_ \/ _' | |
- |  __/|  _  |  __/ / __/| (_| | | | | (_| |_|
- |_|   |_| |_|_|   |_____|\__,_|_| |_|\__,_(_)
-
-  php2shell-scanner  --  CVE-2026-109618 / CVE-2026-109619
-  Non-destructive validator for session.upload_progress injection
+  +---------------------------------------+
+  |           php2shell-scanner           |
+  | PHP session upload_progress validator |
+  |   CVE-2026-109618 / CVE-2026-109619   |
+  +---------------------------------------+
 `
 	if noColor {
 		fmt.Fprintln(w, banner)
