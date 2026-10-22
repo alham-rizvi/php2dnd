@@ -11,11 +11,14 @@
 **Non-destructive validator for CVE-2026-109618 / CVE-2026-109619**
 PHP `session.upload_progress` filename-injection chain
 
-[![Go Version](https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=flat-square&logo=go)](https://go.dev/)
-[![CVE](https://img.shields.io/badge/CVE-2026--109618%20%2F%20109619-critical?style=flat-square&color=CC0000)](https://nvd.nist.gov/)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![Non-Destructive](https://img.shields.io/badge/Mode-Non--Destructive-green?style=flat-square)]()
-[![Authorized Use Only](https://img.shields.io/badge/Use-Authorized%20Testing%20Only-orange?style=flat-square)]()
+[![Go](https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
+[![Version](https://img.shields.io/badge/Scanner-v2.0.0-7C3AED?style=for-the-badge&logo=github)](https://github.com/alham-rizvi/php2shell-scanner/releases)
+[![CVE Coverage](https://img.shields.io/badge/CVE-2026--109618%20%2F%20109619-DC2626?style=for-the-badge)](https://nvd.nist.gov/)
+[![Checks](https://img.shields.io/badge/Checks-go%20test%20%7C%20vet%20%7C%20build-16A34A?style=for-the-badge&logo=githubactions&logoColor=white)](#verify-the-build)
+[![Reports](https://img.shields.io/badge/Reports-Terminal%20%7C%20JSON%20%7C%20Markdown-2563EB?style=for-the-badge&logo=markdown&logoColor=white)](#usage)
+[![Batch Scanning](https://img.shields.io/badge/Scanning-Batch%20%26%20Concurrent-0891B2?style=for-the-badge)](#usage)
+[![Inert Canary](https://img.shields.io/badge/Confirmation-Inert%20Canary-059669?style=for-the-badge)](#how-it-works)
+[![Authorized Testing](https://img.shields.io/badge/Use-Authorized%20Testing%20Only-F97316?style=for-the-badge)](#how-it-works)
 
 </div>
 
@@ -23,7 +26,7 @@ PHP `session.upload_progress` filename-injection chain
 
 ## Overview
 
-php2shell-scanner is a Go-based PHP2shell scanner, built for security researchers and penetration testers conducting **authorized assessments** 
+php2shell-scanner is a Go-based PHP2shell scanner, built for security researchers and penetration testers conducting **authorized assessments**.
 
 It validates whether a PHP target is susceptible to the `session.upload_progress` filename injection primitive that underlies CVE-2026-109618 and CVE-2026-109619. It **never executes any code on the target** - confirmation is done by injecting an inert random token (no `<?php` tags) and reading it back via a caller-supplied LFI endpoint.
 
@@ -55,22 +58,20 @@ The canary looks like `P2S_3a9f1c2b...` - a hex string with no PHP tags. Matchin
 
 ---
 
-## Improvements Over the Original
+## Features at a Glance
 
-| Feature                | CyberRoute Python      | This Scanner (Go)              |
-|------------------------|------------------------|--------------------------------|
-| Language               | Python + stdlib        | Go - single static binary      |
-| TLS support            | No (raw sockets only)  | Yes + `--skip-tls` flag        |
-| Concurrent scanning    | No                     | Yes - goroutine worker pool    |
-| Batch / multi-target   | No                     | Yes - `--targets` file         |
-| Output formats         | Terminal only          | terminal / json / markdown     |
-| Report to file         | No                     | `--output report.json`         |
-| Custom headers         | No                     | `--header "Name: Value"`       |
-| Custom User-Agent      | No                     | `--user-agent`                 |
-| Verbose debug mode     | No                     | `--verbose`                    |
-| Unit tests             | No                     | Version classifier tested      |
-| Runtime dependencies   | Python 3               | None                           |
-
+| Capability | Included |
+|---|---|
+| Language | Go 1.22+; single static binary |
+| TLS support | Yes, with an explicit `--skip-tls` option |
+| Concurrent scanning | Yes, with configurable worker count |
+| Batch / multi-target | Yes, using a `--targets` file |
+| Output formats | Terminal, JSON, and Markdown |
+| Report to file | Yes, with `--output` |
+| Custom headers and User-Agent | Yes |
+| Verbose probe details | Yes, with `--verbose` |
+| Tests | PHP version classifier covered |
+| Runtime dependencies | None |
 ---
 
 ## Installation
