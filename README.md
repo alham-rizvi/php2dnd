@@ -92,13 +92,13 @@ Requirements: Go 1.22 or later.
 ```bash
 git clone https://github.com/alham-rizvi/php2shell-scanner.git
 cd php2shell-scanner
-go build -ldflags="-s -w" -o php2shell-scanner ./cmd/scanner/
+go build -ldflags="-s -w" -o php2shell-scanner ./cmd/php2shell-scanner/
 ```
 
 ### go install
 
 ```bash
-go install github.com/alham-rizvi/php2shell-scanner/cmd/scanner@latest
+go install github.com/alham-rizvi/php2shell-scanner/cmd/php2shell-scanner@latest
 ```
 
 ### Verify the build
@@ -250,7 +250,7 @@ And patch PHP to the fixed release for your branch.
 ```
 php2shell-scanner/
 |- cmd/
-|  `- scanner/
+|  `- php2shell-scanner/
 |     `- main.go              CLI entry point, flag parsing, batch orchestration
 |- internal/
 |  |- checker/

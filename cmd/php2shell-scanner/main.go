@@ -16,8 +16,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/php2shell-scanner/internal/checker"
-	"github.com/php2shell-scanner/internal/report"
+	"github.com/alham-rizvi/php2shell-scanner/internal/checker"
+	"github.com/alham-rizvi/php2shell-scanner/internal/report"
 )
 
 const version = "2.0.0"
@@ -247,8 +247,8 @@ Non-destructive validator for CVE-2026-109618 / CVE-2026-109619
 (PHP session.upload_progress filename injection chain)
 
 USAGE:
-  scanner --target <URL> [options]
-  scanner --targets <file> [options]
+  php2shell-scanner --target <URL> [options]
+  php2shell-scanner --targets <file> [options]
 
 TARGET OPTIONS:
   --target <URL>          Single target, e.g. http://host:8080
@@ -286,19 +286,19 @@ EXIT CODES:
 
 EXAMPLES:
   # Preconditions only
-  scanner --target http://host:8080 --yes
+  php2shell-scanner --target http://host:8080 --yes
 
   # Full end-to-end confirmation
-  scanner --target http://host:8080 \
+  php2shell-scanner --target http://host:8080 \
     --lfi 'http://host:8080/vuln.php?page=FUZZ' \
     --save-path /tmp/sessions \
     --yes
 
   # Batch scan with JSON output
-  scanner --targets urls.txt --concurrency 10 --format json --output report.json --yes
+  php2shell-scanner --targets urls.txt --concurrency 10 --format json --output report.json --yes
 
   # Markdown report for a bug report
-  scanner --target http://host:8080 --lfi '...' --format markdown --output report.md --yes
+  php2shell-scanner --target http://host:8080 --lfi '...' --format markdown --output report.md --yes
 
 DISCLAIMER:
   For authorized security testing and educational use only.

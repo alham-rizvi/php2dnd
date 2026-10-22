@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/php2shell-scanner/internal/checker"
-	"github.com/php2shell-scanner/internal/version"
+	"github.com/alham-rizvi/php2shell-scanner/internal/checker"
+	"github.com/alham-rizvi/php2shell-scanner/internal/version"
 )
 
 // ---- ANSI color helpers -----------------------------------------------------
